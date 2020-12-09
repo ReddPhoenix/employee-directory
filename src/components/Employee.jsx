@@ -1,8 +1,9 @@
-import React from 'react';
 import useSortableData from './Sort';
+import React, { useState } from "react";
 
 
 const Employee = (props) => {
+    const [value, setValue] = useState("");
     const { employees, requestSort, sortConfig } = useSortableData(props.employees);
     const getClassNamesFor = (name) => {
         if (!sortConfig) {
@@ -15,6 +16,15 @@ const Employee = (props) => {
             <thead>
                 <tr>
                     <th>
+                        <input
+                            type="text"
+                            value={value}
+                            onChange={e => setValue(e.target.value)}
+                        />
+                    </th>
+                </tr>
+                <tr>
+                    <th>
                         {/* sort by first name button */}
                         <button
                             type="button"
@@ -22,7 +32,7 @@ const Employee = (props) => {
                             className={getClassNamesFor('first_name')}
                         >First Name</button>
                     </th>
-                    
+
                     {/* sort by last name button */}
                     <th>
                         <button
@@ -62,15 +72,30 @@ const Employee = (props) => {
             </thead>
             <tbody>
                 {/* map employee list and display */}
-                {employees.map((emp) => (
-                    <tr key={emp.id}>
-                        <td>{emp.first_name}</td>
-                        <td>{emp.last_name}</td>
-                        <td>{emp.title}</td>
-                        <td>{emp.email}</td>
-                        <td>{emp.phone}</td>
-                    </tr>
-                ))}
+                {employees.filter(item => {
+                    if (!value) return true;
+                    // filter employees based on user input across all column headings
+                    if (item.title.toLowerCase().includes(value.toLowerCase())
+                        || item.first_name.toLowerCase().includes(value.toLowerCase())
+                        || item.last_name.toLowerCase().includes(value.toLowerCase())
+                        || item.email.toLowerCase().includes(value.toLowerCase())
+                        || item.phone.toLowerCase().includes(value.toLowerCase())
+                    ) {
+                        return true;
+                    }
+                    return false;
+                })
+                    .map((emp) => (
+                        <tr key={emp.id}>
+                            <td>{emp.first_name}</td>
+                            <td>{emp.last_name}</td>
+                            <td>{emp.title}</td>
+                            <td>{emp.email}</td>
+                            <td>{emp.phone}</td>
+                        </tr>
+
+
+                    ))}
             </tbody>
         </table>
     );

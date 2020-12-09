@@ -8,7 +8,7 @@ export default function App() {
     return (
         <div>
             <Header />
-            <Filter />
+            {/* <Filter /> */}
             <Employee employees={employees} />
         </div>
     );

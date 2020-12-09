@@ -7,7 +7,7 @@ const useSortableData = (employees, config = null) => {
         let sortableItems = [...employees];
         if (sortConfig !== null) {
             sortableItems.sort((a, b) => {
-                if (a[sortConfig.key] > b[sortConfig.key]) {
+                if (a[sortConfig.key] < b[sortConfig.key]) {
                     return sortConfig.direction === 'ascending' ? -1 : 1;
                 }
                 if (a[sortConfig.key] > b[sortConfig.key]) {

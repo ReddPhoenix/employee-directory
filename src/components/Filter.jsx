@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import employees from '../data/Employees.json'
+import employees from '../data/Employees.json';
+import Employee from './Employee';
 
 
 const List = ({ employees }) => {
@@ -13,7 +14,8 @@ const List = ({ employees }) => {
             />
             {employees
                 .filter(item => {
-                    if (!value) return true;
+                  if (!value) return true;
+                  // filter employees based on user input across all column headings
                     if (item.title.toLowerCase().includes(value.toLowerCase())
                         || item.first_name.toLowerCase().includes(value.toLowerCase())
                         || item.last_name.toLowerCase().includes(value.toLowerCase())
