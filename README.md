@@ -20,7 +20,7 @@ This app was created using React. The Employee Directory allows a user to sort a
   ## **Demo**
   ![Demo](https://raw.githubusercontent.com/ReddPhoenix/employee-directory/main/public/assets/demo.gif)
  
-  ## **Usage**
+ ## **Usage**
 As a user, I want to be able to view my entire employee directory at once so that I have quick access to their information. 
 
 An employee or manager would benefit greatly from being able to view non-sensitive data about other employees. It would be particularly helpful to be able to filter employees by name.
