@@ -12,25 +12,40 @@ const Employee = (props) => {
         return sortConfig.key === name ? sortConfig.direction : undefined;
     };
     return (
-        <table>
+        
+        <table className='table  is-striped is-hoverable is-fullwidth'>
             <thead>
                 <tr>
                     <th>
-                        <input
-                            type="text"
-                            value={value}
-                            onChange={e => setValue(e.target.value)}
-                        />
+                        <div className='control has-icons-right'>
+                            <input
+                                type="text"
+                                value={value}
+                                onChange={e => setValue(e.target.value)}
+                                placeholder='Search...'
+                                className='input is-rounded'
+                            />
+                            <span className='icon is-small is-right'>
+                                <i class="fa fa-search"></i>
+                            </span>
+                        </div>
                     </th>
                 </tr>
                 <tr>
                     <th>
                         {/* sort by first name button */}
-                        <button
-                            type="button"
-                            onClick={() => requestSort('first_name')}
-                            className={getClassNamesFor('first_name')}
-                        >First Name</button>
+                        <div className='has-icons-right'>
+                            <button
+                                type="button"
+                                onClick={() => requestSort('first_name')}
+                                className={getClassNamesFor('first_name')}
+
+                            >First Name
+                                <span className='icon is-small is-right'>
+                                    <i className="fa fa-sort"></i>
+                                </span>
+                            </button>
+                        </div>
                     </th>
 
                     {/* sort by last name button */}
@@ -39,7 +54,10 @@ const Employee = (props) => {
                             type="button"
                             onClick={() => requestSort('last_name')}
                             className={getClassNamesFor('last_name')}
-                        >Last Name</button>
+                        >Last Name
+                        <span className='icon is-small is-right'>
+                                <i className="fa fa-sort"></i>
+                            </span></button>
                     </th>
 
                     {/* sort by job title button */}
@@ -48,7 +66,10 @@ const Employee = (props) => {
                             type="button"
                             onClick={() => requestSort('title')}
                             className={getClassNamesFor('title')}
-                        >Title</button>
+                        >Title
+                        <span className='icon is-small is-right'>
+                                <i className="fa fa-sort"></i>
+                            </span></button>
                     </th>
 
                     {/* sort by employee email button */}
@@ -57,7 +78,10 @@ const Employee = (props) => {
                             type="button"
                             onClick={() => requestSort('email')}
                             className={getClassNamesFor('email')}
-                        >Email</button>
+                        >Email
+                        <span className='icon is-small is-right'>
+                                <i className="fa fa-sort"></i>
+                            </span></button>
                     </th>
 
                     {/* sort by employee phone button */}
@@ -66,7 +90,10 @@ const Employee = (props) => {
                             type="button"
                             onClick={() => requestSort('phone')}
                             className={getClassNamesFor('phone')}
-                        >Phone Number</button>
+                        >Phone Number
+                        <span className='icon is-small is-right'>
+                                <i className="fa fa-sort"></i>
+                            </span></button>
                     </th>
                 </tr>
             </thead>
